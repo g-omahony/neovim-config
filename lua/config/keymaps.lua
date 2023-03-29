@@ -3,3 +3,6 @@
 -- Add any additional keymaps here
 vim.keymap.set({ "n", "i" }, "jk", "<esc>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "i" }, "kj", "<esc>", { noremap = true, silent = true })
+-- resize vertical left right
+vim.keymap.set("n", "<M-Left>", "<cmd>vertical resize -2<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +2<cr>", { noremap = true, silent = true })
