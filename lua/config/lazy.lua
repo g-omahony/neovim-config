@@ -44,3 +44,5 @@ require("lazy").setup({
     },
   },
 })
+-- lde-rspec local
+vim.opt.rtp:prepend("~/dev/lde-rspec/")

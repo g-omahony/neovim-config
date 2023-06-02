@@ -44,8 +44,24 @@ vim.keymap.set("t", "<leader>tt", '<C-\\><C-n><CMD>:lua require("FTerm").toggle(
 vim.keymap.set(
   "n",
   "<leader>rn",
-  "<cmd>RunNearestSpec<cr>",
+  "<CMD>:lua require('lde-rspec').run_nearest_spec()<CR>",
   { noremap = true, silent = true, desc = "Run nearest spec" }
 )
-vim.keymap.set("n", "<leader>rt", "<cmd>RunThisSpec<cr>", { noremap = true, silent = true, desc = "Run this file" })
-vim.keymap.set("n", "<leader>rf", "<cmd>RunSpecFolder<cr>", { noremap = true, silent = true, desc = "Run this folder" })
+vim.keymap.set(
+  "n",
+  "<leader>rt",
+  "<CMD>:lua require('lde-rspec').run_this_spec()<CR>",
+  { noremap = true, silent = true, desc = "Run this file" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rf",
+  "<CMD>:lua require('lde-rspec').run_spec_folder()<CR>",
+  { noremap = true, silent = true, desc = "Run this folder" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rs",
+  "<CMD>:lua require('lde-rspec').select_service()<CR>",
+  { noremap = true, silent = true, desc = "Set the test service" }
+)
