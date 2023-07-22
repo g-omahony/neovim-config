@@ -40,7 +40,7 @@ vim.keymap.set(
 )
 vim.keymap.set("t", "<leader>tt", '<C-\\><C-n><CMD>:lua require("FTerm").toggle()<CR>')
 
--- rspec
+-- -- rspec
 vim.keymap.set(
   "n",
   "<leader>rn",
