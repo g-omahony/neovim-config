@@ -13,6 +13,32 @@ vim.keymap.set("n", "<leader>hm", "<cmd>:lua require('harpoon.ui').toggle_quick_
 vim.keymap.set("n", "<leader>hj", "<cmd>:lua require('harpoon.ui').nav_next()<cr>", { desc = "Navigate to next" })
 vim.keymap.set("n", "<leader>hk", "<cmd>:lua require('harpoon.ui').nav_prev()<cr>", { desc = "Navigate to previous" })
 
+-- -- rspec
+vim.keymap.set(
+  "n",
+  "<leader>rn",
+  "<CMD>:lua require('lde-rspec').run_nearest_spec()<CR>",
+  { noremap = true, silent = true, desc = "Run nearest spec" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rt",
+  "<CMD>:lua require('lde-rspec').run_this_spec()<CR>",
+  { noremap = true, silent = true, desc = "Run this file" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rf",
+  "<CMD>:lua require('lde-rspec').run_spec_folder()<CR>",
+  { noremap = true, silent = true, desc = "Run this folder" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rs",
+  "<CMD>:lua require('lde-rspec').select_service()<CR>",
+  { noremap = true, silent = true, desc = "Set the test service" }
+)
+
 -- FTerm
 vim.keymap.set(
   "n",
@@ -39,29 +65,3 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "toggle" }
 )
 vim.keymap.set("t", "<leader>tt", '<C-\\><C-n><CMD>:lua require("FTerm").toggle()<CR>')
-
--- -- rspec
-vim.keymap.set(
-  "n",
-  "<leader>rn",
-  "<CMD>:lua require('lde-rspec').run_nearest_spec()<CR>",
-  { noremap = true, silent = true, desc = "Run nearest spec" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>rt",
-  "<CMD>:lua require('lde-rspec').run_this_spec()<CR>",
-  { noremap = true, silent = true, desc = "Run this file" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>rf",
-  "<CMD>:lua require('lde-rspec').run_spec_folder()<CR>",
-  { noremap = true, silent = true, desc = "Run this folder" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>rs",
-  "<CMD>:lua require('lde-rspec').select_service()<CR>",
-  { noremap = true, silent = true, desc = "Set the test service" }
-)
