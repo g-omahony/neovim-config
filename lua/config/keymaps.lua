@@ -13,6 +13,8 @@ vim.keymap.set("n", "<leader>hm", "<cmd>:lua require('harpoon.ui').toggle_quick_
 vim.keymap.set("n", "<leader>hj", "<cmd>:lua require('harpoon.ui').nav_next()<cr>", { desc = "Navigate to next" })
 vim.keymap.set("n", "<leader>hk", "<cmd>:lua require('harpoon.ui').nav_prev()<cr>", { desc = "Navigate to previous" })
 
+vim.keymap.set("i", "<F12>", "binding.pry<ESC>", { noremap = true, silent = true })
+
 -- -- rspec
 vim.keymap.set(
   "n",
@@ -65,3 +67,11 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "toggle" }
 )
 vim.keymap.set("t", "<leader>tt", '<C-\\><C-n><CMD>:lua require("FTerm").toggle()<CR>')
+--
+
+vim.keymap.set(
+  "n",
+  "<leader>gd",
+  "<cmd>:lua require('FTerm').run('gh dash')<cr>",
+  { noremap = true, silent = true, desc = "gh dash" }
+)
