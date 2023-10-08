@@ -15,6 +15,7 @@ vim.keymap.set("n", "<leader>hk", "<cmd>:lua require('harpoon.ui').nav_prev()<cr
 
 vim.keymap.set("i", "<F12>", "binding.pry<ESC>", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>m", "<cmd>:lua require('treesj').toggle()<cr>", { desc = "Toggle TreeSJ" })
 -- -- rspec
 vim.keymap.set(
   "n",

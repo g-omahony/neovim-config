@@ -6,5 +6,5 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.timeoutlen = 400
 vim.o.statuscolumn = "%l %r %s"
+-- vim.g.gruvbox_baby_transparent_mode = true
 vim.g.gruvbox_baby_telescope_theme = 1
--- vim.g.gruvbox_baby_transparent_mode = 1
