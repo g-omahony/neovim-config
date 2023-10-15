@@ -2,7 +2,9 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
-      solargraph = {},
+      solargraph = {
+        exclude = "spec/**/*",
+      },
     },
   },
 }
