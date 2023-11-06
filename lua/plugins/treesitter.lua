@@ -12,7 +12,6 @@ return {
       "markdown",
       "markdown_inline",
       "regex",
-      "ruby",
       "vim",
       "vimdoc",
       "yaml",
