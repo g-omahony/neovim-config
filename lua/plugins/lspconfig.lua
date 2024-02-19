@@ -4,7 +4,7 @@ return {
     servers = {
       solargraph = {
         exclude = "spec/**/*",
-        cmd = { "/Users/gomahony/.rbenv/shims/solargraph", "stdio" },
+        -- cmd = { "/Users/gomahony/.rbenv/shims/solargraph", "stdio" },
       },
       rubocop = {
         cmd = { "bundle", "exec", "rubocop" },
