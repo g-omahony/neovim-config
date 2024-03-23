@@ -7,68 +7,9 @@ vim.keymap.set({ "n", "i" }, "kj", "<esc>", { noremap = true, silent = true })
 vim.keymap.set("n", "<M-Left>", "<cmd>vertical resize -2<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +2<cr>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>hh", "<cmd>:lua require('harpoon.mark').add_file()<cr>", { desc = "Mark this file" })
-
-vim.keymap.set("n", "<leader>hm", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Menu" })
-vim.keymap.set("n", "<leader>hj", "<cmd>:lua require('harpoon.ui').nav_next()<cr>", { desc = "Navigate to next" })
-vim.keymap.set("n", "<leader>hk", "<cmd>:lua require('harpoon.ui').nav_prev()<cr>", { desc = "Navigate to previous" })
-
 vim.keymap.set("i", "<F12>", "binding.pry<ESC>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>m", "<cmd>:lua require('treesj').toggle()<cr>", { desc = "Toggle TreeSJ" })
--- -- rspec
-vim.keymap.set(
-  "n",
-  "<leader>rn",
-  "<CMD>:lua require('lde-rspec').run_nearest_spec()<CR>",
-  { noremap = true, silent = true, desc = "Run nearest spec" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>rt",
-  "<CMD>:lua require('lde-rspec').run_this_spec()<CR>",
-  { noremap = true, silent = true, desc = "Run this file" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>rf",
-  "<CMD>:lua require('lde-rspec').run_spec_folder()<CR>",
-  { noremap = true, silent = true, desc = "Run this folder" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>rs",
-  "<CMD>:lua require('lde-rspec').select_service()<CR>",
-  { noremap = true, silent = true, desc = "Set the test service" }
-)
-
--- FTerm
-vim.keymap.set(
-  "n",
-  "<leader>to",
-  "<cmd>:lua require('FTerm').open()<cr>",
-  { noremap = true, silent = true, desc = "open" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>tc",
-  "<cmd>:lua require('FTerm').close()<cr>",
-  { noremap = true, silent = true, desc = "close" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>te",
-  "<cmd>:lua require('FTerm').exit()<cr>",
-  { noremap = true, silent = true, desc = "exit" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>tt",
-  "<cmd>:lua require('FTerm').toggle()<cr>",
-  { noremap = true, silent = true, desc = "toggle" }
-)
-vim.keymap.set("t", "<leader>tt", '<C-\\><C-n><CMD>:lua require("FTerm").toggle()<CR>')
---
 
 vim.keymap.set(
   "n",
@@ -76,3 +17,53 @@ vim.keymap.set(
   "<cmd>:lua require('FTerm').run('gh dash')<cr>",
   { noremap = true, silent = true, desc = "gh dash" }
 )
+
+local wk = require("which-key")
+-- FTerm
+wk.register({
+  t = {
+    name = "terminal",
+    o = { "<cmd>:lua require('FTerm').open()<cr>", "Open" },
+    c = { "<cmd>:lua require('FTerm').close()<cr>", "Close" },
+    e = { "<cmd>:lua require('FTerm').exit()<cr>", "Exit" },
+    t = { "<cmd>:lua require('FTerm').toggle()<cr>", "Toggle" },
+  },
+}, { mode = "n", prefix = "<leader>" })
+vim.keymap.set("t", "<leader>tt", '<C-\\><C-n><CMD>:lua require("FTerm").toggle()<CR>')
+
+-- Harpoon
+wk.register({
+  h = {
+    name = "harpoon",
+    h = { "<cmd>:lua require('harpoon.mark').add_file()<cr>", "Mark this file" },
+    m = { "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", "Menu" },
+    j = { "<cmd>:lua require('harpoon.ui').nav_next()<cr>", "Navigate to next" },
+    k = { "<cmd>:lua require('harpoon.ui').nav_prev()<cr>", "Navigate to previous" },
+  },
+}, { mode = "n", prefix = "<leader>" })
+
+-- -- rspec
+wk.register({
+  r = {
+    name = "rspec",
+    n = { "<CMD>:lua require('lde-rspec').run_nearest_spec()<CR>", "Run nearest spec" },
+    t = { "<CMD>:lua require('lde-rspec').run_this_spec()<CR>", "Run this file" },
+    f = { "<CMD>:lua require('lde-rspec').run_spec_folder()<CR>", "Run this folder" },
+    s = { "<CMD>:lua require('lde-rspec').select_service()<CR>", "Set the test service" },
+  },
+}, { mode = "n", prefix = "<leader>" })
+
+-- -- lspsaga
+wk.register({
+  a = {
+    name = "Lspsaga",
+    c = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+    o = { "<cmd>Lspsaga outline<cr>", "Outline" },
+    r = { "<cmd>Lspsaga rename<cr>", "Rename" },
+    d = { "<cmd>Lspsaga goto_definition<cr>", "Lsp GoTo Definition" },
+    f = { "<cmd>Lspsaga finder<cr>", "Lsp Finder" },
+    p = { "<cmd>Lspsaga preview_definition<cr>", "Preview Definition" },
+    s = { "<cmd>Lspsaga signature_help<cr>", "Signature Help" },
+    w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Show Workspace Diagnostics" },
+  },
+}, { prefix = "<leader>" })
